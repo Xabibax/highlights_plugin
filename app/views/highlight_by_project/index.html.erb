@@ -1,0 +1,12 @@
+<h2>HighlightByProjectController#index</h2>
+
+<%= select_tag('Issue filter', options_for_select( @issues.subject, @issues.id.to_s)) %>
+
+<% @highlights.each do |highlight| %>
+  <p>
+    <%= highlight.content %>
+  </p>
+  <p style="text-align: right;">
+    <%= User.all.where(id: highlight.author_id) %><%= highlight.date %>
+  </p>
+<% end %>
